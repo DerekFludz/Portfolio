@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  cursor: url('http://pixeljoint.com/files/icons/full/curseur3.png'), auto;
+}
+
+@font-face {
+  font-family: 'medieval';
+  src: url('../fonts/firstv2l.ttf');
+}
+
+@font-face {
+  font-family: 'abandon';
+  src: url('../fonts/abandon.ttf');
+}
+
+body {
+  background-color: ivory;
+  text-align: center;
+}
+
+header {
+  background-color: cornflowerblue;
+  height: 60px;
+  width: 100%;
+  box-shadow: 3px 3px 10px #191919;
+}
+
+h1 {
+  font-family: 'medieval';
+}
+
+/*.indiv-project {
+
+}*/
+
+/*h1 {
+  font-family: 'medieval';
+  opacity: .5;
+  transition: opacity .25s linear;
+  -moz-transition: opacity .25s linear;
+  -webkit-transition: opacity .25s linear;
+}
+
+h1:hover {
+  opacity: 1;
+}*/
