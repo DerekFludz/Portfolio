@@ -1,9 +1,8 @@
-$(function(){
+var app = angular.module('DerekApp', []);
 
-  // for (var i=0; i < projects.length; i++) {
-  //   var $projectDiv = $('<div>');
-  //   $puckDiv.addClass('indiv-project');
-  //   $('.projects-wrapper').append($projectDiv);
-  // };
+app.controller('MainController', function(){
+
+  var controller = this;
+  this.slide = 1;
 
 });

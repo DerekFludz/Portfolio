@@ -26,6 +26,10 @@ app.use(logger('dev'));
 //   res.send('hi');
 // });
 
+// SEED CONTROLLER
+// var seedController = require('./controllers/seedController.js');
+// app.use('/seed', seedController);
+
 
 /////////////////////////
 // LISTEN

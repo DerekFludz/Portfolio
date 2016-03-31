@@ -1,17 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="DerekApp">
   <head>
     <meta charset="utf-8">
     <title>Derek Fludzinski</title>
     <link rel="stylesheet" href="styles/index.css" media="screen" title="no title" charset="utf-8">
     <script src="http://code.jquery.com/jquery-2.2.2.min.js" charset="utf-8"></script>
     <script src="scripts/app.js" charset="utf-8"></script>
+    <script src="scripts/scripts.js" charset="utf-8"></script>
   </head>
-  <body>
+  <body ng-controller="MainController as mainCtrl">
     <header>
       <h1>Derek Fludzinski</h1>
     </header>
-    <div class="projects-wrapper">
+    <div ng-if="mainCtrl.slide == 1" ng-include=" 'partials/pucks.html' " class="pucks-wrapper">
+
+    </div>
+    <div ng-if="mainCtrl.slide == 2" ng-include=" 'partials/simon.html' " class="simon-wrapper">
+
+    </div>
+    <div ng-if="mainCtrl.slide == 3" ng-include=" 'partials/projects.html' " class="projects-wrapper">
 
     </div>
   </body>
