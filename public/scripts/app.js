@@ -1,4 +1,4 @@
-var app = angular.module('DerekApp', []);
+var app = angular.module("DerekApp", []);
 
 app.controller('MainController', function(){
 

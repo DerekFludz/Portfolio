@@ -6,36 +6,42 @@ $(function(){
   //   $('.projects-wrapper').append($projectDiv);
   // };
 
-  var randomNumber = function() {
-		return Math.random()*1000;
-	}
+  var startPucks = function() {
 
-	var $pucks = [];
+    var randomNumber = function() {
+  		return Math.random()*1000;
+  	}
 
-	for (var i=0; i < 20; i++) {
-		var $puckDiv = $('<div>');
-		$puckDiv.addClass('puck');
-		$('body').append($puckDiv);
-		$pucks.push($puckDiv);
-	};
+  	var $pucks = [];
 
-	var $goldenPuck = $('<div>');
-	$goldenPuck.addClass('golden');
-	$('body').append($goldenPuck);
-	$pucks.push($goldenPuck);
+  	for (var i=0; i < 20; i++) {
+  		var $puckDiv = $('<div>');
+  		$puckDiv.addClass('puck');
+  		$('#pucks-wrapper').append($puckDiv);
+  		$pucks.push($puckDiv);
+  	};
 
-	animateStuff = function() {
-		for (var i=0; i < $pucks.length; i++) {
-			var animateLoop = $pucks[i].animate({
-				left: randomNumber(),
-				top: randomNumber(),
-				right: randomNumber(),
-				bottom: randomNumber()
-			}, 500, function() {
-				animateStuff()});
-		};
-	};
+  	var $goldenPuck = $('<div>');
+  	$goldenPuck.addClass('golden');
+  	$('#pucks-wrapper').append($goldenPuck);
+  	$pucks.push($goldenPuck);
 
-	animateStuff();
+  	animateStuff = function() {
+  		for (var i=0; i < $pucks.length; i++) {
+  			var animateLoop = $pucks[i].animate({
+  				left: randomNumber(),
+  				top: randomNumber(),
+  			}, 500, function() {
+  				animateStuff()});
+  		};
+  	};
+
+  	animateStuff();
+
+  };
+
+  $(document).on('click', '#start-pucks', function() {
+    return startPucks();
+  });
 
 });
