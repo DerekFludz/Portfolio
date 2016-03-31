@@ -61,7 +61,7 @@ h1 {
   background-color: gold;
   margin: 0.1em;
   position: absolute;
-	/*visibility: hidden;*/
+	visibility: hidden;
 }
 
 /*.indiv-project {

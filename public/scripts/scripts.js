@@ -6,10 +6,11 @@ $(function(){
   //   $('.projects-wrapper').append($projectDiv);
   // };
 
+  ////////// PUCK GAME LOGIC //////////
   var startPucks = function() {
 
-    var randomNumber = function() {
-  		return Math.random()*1000;
+    var randomNumber = function(x) {
+  		return Math.random()*x;
   	}
 
   	var $pucks = [];
@@ -21,16 +22,15 @@ $(function(){
   		$pucks.push($puckDiv);
   	};
 
-  	var $goldenPuck = $('<div>');
-  	$goldenPuck.addClass('golden');
-  	$('#pucks-wrapper').append($goldenPuck);
+  	var $goldenPuck = $('.golden');
+    $goldenPuck.css("visibility", "visible")
   	$pucks.push($goldenPuck);
 
   	animateStuff = function() {
   		for (var i=0; i < $pucks.length; i++) {
   			var animateLoop = $pucks[i].animate({
-  				left: randomNumber(),
-  				top: randomNumber(),
+  				left: randomNumber($(window).width() - 75),
+  				top: randomNumber($(window).height() - 125),
   			}, 500, function() {
   				animateStuff()});
   		};
@@ -41,7 +41,17 @@ $(function(){
   };
 
   $(document).on('click', '#start-pucks', function() {
+    $('#start-pucks').remove();
     return startPucks();
   });
+  ////////// END PUCK GAME LOGIC //////////
+
+  ////////// SIMON GAME LOGIC //////////
+
+  
+
+  ////////// END SIMON GAME LOGIC //////////
+
+
 
 });
