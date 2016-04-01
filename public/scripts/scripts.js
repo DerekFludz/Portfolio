@@ -1,11 +1,5 @@
 $(function(){
 
-  // for (var i=0; i < projects.length; i++) {
-  //   var $projectDiv = $('<div>');
-  //   $puckDiv.addClass('indiv-project');
-  //   $('.projects-wrapper').append($projectDiv);
-  // };
-
   ////////// PUCK GAME LOGIC //////////
 
   var startPucks = function() {
@@ -97,12 +91,14 @@ $(function(){
     newRound();
   };
 
+  // start next round
   var newRound = function() {
     $round += 1;
     $cpuMoves.push(randomNum());
     animateBoard($cpuMoves);
   };
 
+  // animate computer move sequence
   var animateBoard = function(x) {
     var i = 0;
     var interval = setInterval(function() {
@@ -116,7 +112,7 @@ $(function(){
     }, 1000);
   };
 
-  // animate squares
+  // animate squares passing in div ID as x based on value in cpuMoves array
   var brightenSquare = function(x) {
     if (x == 1) {
       $('#1').addClass('lit');
@@ -151,14 +147,11 @@ $(function(){
   //
   // }
 
+  // initiate simon game
   $(document).on('click', '#start-simon', function() {
     $('#start-simon').remove();
     return startSimon();
   });
-
-  // random computer move
-
-  // pushed into move array
 
   // player move
 
@@ -169,8 +162,15 @@ $(function(){
   // on 10 stop and proceed to next page
 
 
+
   ////////// END SIMON GAME LOGIC //////////
 
+  ////////// PORTFOLIO LOGIC //////////
 
+  // for (var i=0; i < projects.length; i++) {
+  //   var $projectDiv = $('<div>');
+  //   $puckDiv.addClass('indiv-project');
+  //   $('.projects-wrapper').append($projectDiv);
+  // };
 
 });
