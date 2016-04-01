@@ -38,13 +38,6 @@ h1 {
   position: relative;
 }
 
-#simon-wrapper {
-  width: 80%;
-  margin: 0 auto;
-  height: 500px;
-  background-color: grey;
-}
-
 .puck {
 	width: 30px;
 	height: 30px;
@@ -62,6 +55,41 @@ h1 {
   margin: 0.1em;
   position: absolute;
 	visibility: hidden;
+}
+
+#simon-wrapper {
+  margin: 0 auto;
+  height: 500px;
+  width: 90%;
+  background-color: grey;
+}
+
+.green, .red, .yellow, .blue {
+  height: 230px;
+  width: 45%;
+  margin: 0.5em;
+  opacity: 0.6;
+  display: inline-block;
+}
+
+.lit {
+  opacity: 1;
+}
+
+.green {
+  background-color: green;
+}
+
+.red {
+  background-color: red;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.blue {
+  background-color: blue;
 }
 
 /*.indiv-project {

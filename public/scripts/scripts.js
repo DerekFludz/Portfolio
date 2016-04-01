@@ -31,7 +31,7 @@ $(function(){
   			var animateLoop = $pucks[i].animate({
   				left: randomNumber($(window).width() - 75),
   				top: randomNumber($(window).height() - 125),
-  			}, 500, function() {
+  			}, 1000, function() {
   				animateStuff()});
   		};
   	};
@@ -48,7 +48,17 @@ $(function(){
 
   ////////// SIMON GAME LOGIC //////////
 
-  
+  var $streak = 0;
+
+  var $cpuMoves = [];
+  var $playerMoves = [];
+
+
+
+  // random computer move
+  cpuMove = function() {
+    return
+  }
 
   ////////// END SIMON GAME LOGIC //////////
 
