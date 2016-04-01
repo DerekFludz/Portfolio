@@ -11,16 +11,16 @@
   </head>
   <body ng-controller="MainController as mainCtrl">
     <header>
-      <h1>Derek Fludzinski</h1>
+      <ul>
+        <li ng-click="mainCtrl.slide1()" class="navbar-link">Pucks</li> |
+        <li ng-click="mainCtrl.slide2()" class="navbar-link">Simon</li> |
+        <li ng-click="mainCtrl.slide3()" class="navbar-link">Portfolio</li> -->
+        <h2 class="navbar-link-title">Derek Fludzinski</h2>
+      </ul>
     </header>
-    <div ng-if="mainCtrl.slide == 1" ng-include=" 'partials/pucks.html' " id="pucks-wrapper">
-
-    </div>
-    <div ng-if="mainCtrl.slide == 2" ng-include=" 'partials/simon.html' " id="simon-wrapper">
-
-    </div>
-    <div ng-if="mainCtrl.slide == 3" ng-include=" 'partials/projects.html' " class="projects-wrapper">
-
-    </div>
+    <div ng-if="mainCtrl.slide == 0" ng-include=" 'partials/lander.html' " id="lander-wrapper"></div>
+    <div ng-if="mainCtrl.slide == 1" ng-include=" 'partials/pucks.html' " id="pucks-wrapper"></div>
+    <div ng-if="mainCtrl.slide == 2" ng-include=" 'partials/simon.html' " id="simon-wrapper"></div>
+    <div ng-if="mainCtrl.slide == 3" ng-include=" 'partials/projects.html' " class="projects-wrapper"></div>
   </body>
 </html>
