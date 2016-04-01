@@ -31,7 +31,7 @@ header {
   display: inline-block;
   text-shadow: 1px 1px purple;
   font-size: larger;
-  font-family: 'medieval';
+  font-family: 'abandon';
   padding: 10px;
 }
 
@@ -43,6 +43,15 @@ header {
   display: inline-block;
   padding: 10px;
   font-family: 'medieval';
+}
+
+button {
+  padding: 5px 10px;
+  margin: 1em;
+}
+
+button:hover {
+  transform: scale(1.2);
 }
 
 /* Puck Game */
@@ -88,8 +97,8 @@ header {
 }
 
 .green, .red, .yellow, .blue {
-  height: 40%;
-  width: 45%;
+  height: 35%;
+  width: 40%;
   margin: 0.5em;
   opacity: 0.6;
   display: inline-block;
@@ -100,7 +109,7 @@ header {
 }
 
 .green {
-  background-color: green;
+  background-color: #32CD32;
 }
 
 .red {

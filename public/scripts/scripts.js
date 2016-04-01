@@ -16,6 +16,7 @@ $(function(){
 
   	var $pucks = [];
 
+    // dynamically generate pucks
   	for (var i=0; i < 20; i++) {
   		var $puckDiv = $('<div>');
   		$puckDiv.addClass('puck');
@@ -28,8 +29,10 @@ $(function(){
   	$pucks.push($goldenPuck);
 
   	animateStuff = function() {
+      // loop through the puck array
   		for (var i=0; i < $pucks.length; i++) {
   			var animateLoop = $pucks[i].animate({
+          // randomly animate page position, set speed, set max dimensions based on browser size
   				left: randomNumber($(window).width() - 75),
   				top: randomNumber($(window).height() - 125),
   			}, 5000, function() {
@@ -39,18 +42,34 @@ $(function(){
 
   	animateStuff();
 
+    // storing clicks for high scores
     var counter = 0;
     $(document).on('click', function() {
       counter++;
     });
 
-    $(document).on('click', '#check-score', function() {
-      $clicks = $('<p>').html('Number of Clicks: ' + counter);
-      $('#puckscore-wrapper').append($clicks);
+    // storing time spent on game for high scores
+    var timer = 0;
+    var timeRun = setInterval(function() {
+      timer++;
+    }, 1000);
+
+    // stop timer once golden puck is clicked
+    $(document).on('click', '.golden', function() {
+      clearInterval(timeRun);
     });
 
-  };
+    // display # of clicks and time spent on puck game
+    $(document).on('click', '#check-score', function() {
+      $clicks = $('<p>').html('Number of Clicks: ' + counter);
+      $time = $('<p>').html('Time Spent: ' + timer + ' seconds');
+      $('#puckscore-wrapper').append($clicks);
+      $('#puckscore-wrapper').append($time);
+    });
 
+  }; // <-- end startPucks function
+
+  // initialize puck game
   $(document).on('click', '#start-pucks', function() {
     $('#start-pucks').remove();
     return startPucks();

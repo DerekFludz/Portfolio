@@ -3,7 +3,7 @@ var app = angular.module("DerekApp", []);
 app.controller('MainController', function(){
 
   var controller = this;
-  this.slide = 1;
+  this.slide = 0;
 
   this.slide1 = function() {
     return controller.slide = 1;
@@ -15,6 +15,10 @@ app.controller('MainController', function(){
 
   this.slide3 = function() {
     return controller.slide = 3;
+  }
+
+  this.slide4 = function() {
+    return controller.slide = 4;
   }
 
   this.slider = function() {
