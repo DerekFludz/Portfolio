@@ -32,12 +32,22 @@ $(function(){
   			var animateLoop = $pucks[i].animate({
   				left: randomNumber($(window).width() - 75),
   				top: randomNumber($(window).height() - 125),
-  			}, 1000, function() {
+  			}, 5000, function() {
   				animateStuff()});
   		};
   	};
 
   	animateStuff();
+
+    var counter = 0;
+    $(document).on('click', function() {
+      counter++;
+    });
+
+    $(document).on('click', '#check-score', function() {
+      $clicks = $('<p>').html('Number of Clicks: ' + counter);
+      $('#puckscore-wrapper').append($clicks);
+    });
 
   };
 

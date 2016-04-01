@@ -73,6 +73,11 @@ header {
 	visibility: hidden;
 }
 
+#puck-score {
+  margin: 0 auto;
+  padding: 15px;
+}
+
 /* Simon Game */
 
 #simon-wrapper {
