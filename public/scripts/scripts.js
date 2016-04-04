@@ -102,33 +102,31 @@ $(function(){
     $cpuMoves.push(randomNum());
     animateBoard($cpuMoves);
     // boardOn();
-    $('.simon-color').on('click', function(event) {
-      var move = parseInt(event.target.id);
-      $playerMoves.push(move);
-      brightenSquare(event.target.id);
-    });
   };
 
-  // if ($cpuMoves.length == $playerMoves.length) {
-  //   // boardOff();
-  //   checkMoves($cpuMoves, $playerMoves);
-  //   if ($matched == true) {
-  //     newRound();
-  //   };
-  // } else {
-  //   console.log('not equal length');
-  //   return false;
-  // };
+  $(document).on('click', '.simon-color', function(event) {
+    var move = parseInt(event.target.id);
+    $playerMoves.push(move);
+    brightenSquare(event.target.id);
+    checkMatch();
+  });
+
+  var checkMatch = function() {
+    if ($cpuMoves.length == $playerMoves.length) {
+      // boardOff();
+      checkMoves($cpuMoves, $playerMoves);
+    } else {
+      return console.log('not equal length');
+    };
+  };
 
   var checkMoves = function(c, p) {
     for (var i = 0; i < $cpuMoves.length; i++) {
       if (c[i] != p[i]) {
         alert('Lost!')
-      } else {
-        $matched = true;
       };
-      return $matched;
     };
+    return newRound();
   };
 
   // animate computer move sequence
