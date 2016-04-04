@@ -73,7 +73,6 @@ $(function(){
 
   ////////// SIMON GAME LOGIC //////////
 
-  var $streak = 0;
   var $round = 0;
   var $matched = null;
 
@@ -88,7 +87,6 @@ $(function(){
     $cpuMoves = [];
     $playerMoves = [];
     $round = 0;
-    $streak = 0;
     newRound();
   };
 
@@ -98,6 +96,11 @@ $(function(){
     $matched = null;
     // boardOff();
     $round += 1;
+    if ($round > 10) {
+      $('#round').html('Well done!');
+      $('#simon-win').css('visibility', 'visible');
+      return;
+    };
     $('#round').html('Round: ' + $round);
     $cpuMoves.push(randomNum());
     animateBoard($cpuMoves);
@@ -124,6 +127,9 @@ $(function(){
     for (var i = 0; i < $cpuMoves.length; i++) {
       if (c[i] != p[i]) {
         alert('Lost!')
+        var $playAgain = $('<button id="play-again">').html('Play Again');
+        $('#simon-wrapper').append($playAgain);
+        return;
       };
     };
     return newRound();
@@ -166,11 +172,6 @@ $(function(){
     }
   };
 
-  // user clicks
-  // var userClicked = function() {
-  //
-  // };
-
   // allow user interaction
   // var boardOn = function() {
   //   $('#simon-wrapper').on('click', $('.simon-color'), function(x) {
@@ -189,15 +190,11 @@ $(function(){
     return startSimon();
   });
 
-  // player move
-
-  // check for match with move array
-
-  // restart round
-
-  // on 10 stop and proceed to next page
-
-
+  // replay simon after loss
+  $(document).on('click', '#play-again', function() {
+    $('#play-again').remove();
+    return startSimon();
+  });
 
   ////////// END SIMON GAME LOGIC //////////
 

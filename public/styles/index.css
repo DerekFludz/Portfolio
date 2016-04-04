@@ -101,6 +101,10 @@ button:hover {
   background-color: grey;
 }
 
+#simon-win {
+  visibility: hidden;
+}
+
 .green, .red, .yellow, .blue {
   height: 35%;
   width: 40%;
