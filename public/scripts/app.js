@@ -21,8 +21,4 @@ app.controller('MainController', function(){
     return controller.slide = 4;
   }
 
-  this.slider = function() {
-    return controller.slide +=1;
-  };
-
 });
