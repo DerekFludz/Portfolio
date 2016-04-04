@@ -200,10 +200,10 @@ $(function(){
 
   ////////// PORTFOLIO LOGIC //////////
 
-  for (var i=0; i < projects.length; i++) {
-    var $projectDiv = $('<div>');
-    $projectDiv.addClass('indiv-project');
-    $('#projects-wrapper').append($projectDiv);
-  };
+  // for (var i=0; i < projects.length; i++) {
+  //   var $projectDiv = $('<div>');
+  //   $projectDiv.addClass('indiv-project');
+  //   $('#projects-wrapper').append($projectDiv);
+  // };
 
-});
+}); // -- end load
