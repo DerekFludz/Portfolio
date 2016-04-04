@@ -75,6 +75,7 @@ $(function(){
 
   var $streak = 0;
   var $round = 0;
+  var $matched = null;
 
   var $cpuMoves = [];
   var $playerMoves = [];
@@ -93,9 +94,41 @@ $(function(){
 
   // start next round
   var newRound = function() {
+    $playerMoves = [];
+    $matched = null;
+    // boardOff();
     $round += 1;
+    $('#round').html('Round: ' + $round);
     $cpuMoves.push(randomNum());
     animateBoard($cpuMoves);
+    // boardOn();
+    $('.simon-color').on('click', function(event) {
+      var move = parseInt(event.target.id);
+      $playerMoves.push(move);
+      brightenSquare(event.target.id);
+    });
+  };
+
+  // if ($cpuMoves.length == $playerMoves.length) {
+  //   // boardOff();
+  //   checkMoves($cpuMoves, $playerMoves);
+  //   if ($matched == true) {
+  //     newRound();
+  //   };
+  // } else {
+  //   console.log('not equal length');
+  //   return false;
+  // };
+
+  var checkMoves = function(c, p) {
+    for (var i = 0; i < $cpuMoves.length; i++) {
+      if (c[i] != p[i]) {
+        alert('Lost!')
+      } else {
+        $matched = true;
+      };
+      return $matched;
+    };
   };
 
   // animate computer move sequence
@@ -106,8 +139,6 @@ $(function(){
       i++;
       if (i >= $cpuMoves.length) {
         clearInterval(interval);
-        // boardOn();
-        newRound();
       };
     }, 1000);
   };
@@ -137,15 +168,22 @@ $(function(){
     }
   };
 
+  // user clicks
+  // var userClicked = function() {
+  //
+  // };
+
   // allow user interaction
   // var boardOn = function() {
-  //
-  // }
+  //   $('#simon-wrapper').on('click', $('.simon-color'), function(x) {
+  //     userClicked(x);
+  //   });
+  // };
 
   // disable user interaction
   // var boardOff = function() {
-  //
-  // }
+  //   $('#simon-wrapper').off('click', $('.simon-color'));
+  // };
 
   // initiate simon game
   $(document).on('click', '#start-simon', function() {
