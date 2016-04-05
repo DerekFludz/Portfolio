@@ -170,16 +170,13 @@ button:hover {
   color: black;
 }
 
-.indiv-project h2:hover {
-  transform: scale(1.1);
-}
-
 .indiv-project img {
   width: inherit;
 }
 
-.indiv-project p {
+.indiv-project p, #about {
   padding: 1em;
+  font-size: 18px;
 }
 
 hr {

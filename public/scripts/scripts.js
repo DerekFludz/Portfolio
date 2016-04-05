@@ -29,7 +29,7 @@ $(function(){
           // randomly animate page position, set speed, set max dimensions based on browser size
   				left: randomNumber($(window).width() - 75),
   				top: randomNumber($(window).height() - 125),
-  			}, 5000, function() {
+  			}, 1000, function() {
   				animateStuff()});
   		};
   	};
@@ -82,7 +82,7 @@ $(function(){
   ////////// SIMON GAME LOGIC //////////
 
   var $round = 0;
-  var $matched = null;
+  var playerTurn = null;
 
   var $cpuMoves = [];
   var $playerMoves = [];
@@ -100,11 +100,10 @@ $(function(){
 
   // start next round
   var newRound = function() {
+    playerTurn = false;
     $playerMoves = [];
-    $matched = null;
-    // boardOff();
     $round += 1;
-    if ($round > 3) {
+    if ($round > 10) {
       $('#round').html('Well done!');
       $('#simon-win').css('visibility', 'visible');
       return;
@@ -112,34 +111,37 @@ $(function(){
     $('#round').html('Round: ' + $round);
     $cpuMoves.push(randomNum());
     animateBoard($cpuMoves);
-    // boardOn();
   };
 
   $(document).on('click', '.simon-color', function(event) {
-    var move = parseInt(event.target.id);
-    $playerMoves.push(move);
-    brightenSquare(event.target.id);
-    checkMatch();
+    if (playerTurn) {
+      var move = parseInt(event.target.id);
+      $playerMoves.push(move);
+      brightenSquare(event.target.id);
+      checkMatch();
+    };
   });
 
   var checkMatch = function() {
+    // proceed if arrays are equal in length
     if ($cpuMoves.length == $playerMoves.length) {
-      // boardOff();
       checkMoves($cpuMoves, $playerMoves);
     } else {
-      return console.log('not equal length');
+      return;
     };
   };
 
   var checkMoves = function(c, p) {
     for (var i = 0; i < $cpuMoves.length; i++) {
+      // check computer array against player array
       if (c[i] != p[i]) {
-        alert('Lost!')
-        var $playAgain = $('<button id="play-again">').html('Play Again');
+        playerTurn = false;
+        var $playAgain = $('<button id="play-again">').html('Oops! Play Again?');
         $('#simon-wrapper').append($playAgain);
         return;
       };
     };
+    playerTurn = false;
     return newRound();
   };
 
@@ -151,6 +153,7 @@ $(function(){
       i++;
       if (i >= $cpuMoves.length) {
         clearInterval(interval);
+        playerTurn = true;
       };
     }, 1000);
   };
@@ -180,18 +183,6 @@ $(function(){
     }
   };
 
-  // allow user interaction
-  // var boardOn = function() {
-  //   $('#simon-wrapper').on('click', $('.simon-color'), function(x) {
-  //     userClicked(x);
-  //   });
-  // };
-
-  // disable user interaction
-  // var boardOff = function() {
-  //   $('#simon-wrapper').off('click', $('.simon-color'));
-  // };
-
   // initiate simon game
   $(document).on('click', '#start-simon', function() {
     $('#start-simon').remove();
@@ -205,7 +196,5 @@ $(function(){
   });
 
   ////////// END SIMON GAME LOGIC //////////
-
-  ////////// PORTFOLIO LOGIC //////////
 
 }); // -- end load
