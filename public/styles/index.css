@@ -16,18 +16,26 @@
   src: url('../fonts/abandon.ttf');
 }
 
+/* General */
+
 body {
   background-color: ivory;
   text-align: center;
+  font-family: 'abandon';
 }
 
 header {
   background-color: cornflowerblue;
   min-height: 60px;
+  top: 0;
   height: auto;
   width: 100%;
   box-shadow: 3px 3px 10px #191919;
   margin-bottom: 1em;
+}
+
+.final {
+  position: fixed;
 }
 
 /* Navbar */
@@ -49,6 +57,8 @@ header {
   padding: 10px;
   font-family: 'medieval';
 }
+
+/* Buttons */
 
 button {
   padding: 5px 10px;
@@ -90,6 +100,10 @@ button:hover {
 #puck-score {
   margin: 0 auto;
   padding: 15px;
+}
+
+#score-form, #save-score {
+  visibility: hidden;;
 }
 
 /* Simon Game */
@@ -136,5 +150,38 @@ button:hover {
 /* Portfolio Page */
 
 #projects-wrapper {
-  
+  margin-top: 70px;
+  width: 100%;
+}
+
+.indiv-project {
+  width: 45%;
+  margin: 1em;
+  display: inline-block;
+}
+
+.indiv-project h2 {
+  text-shadow: 1px 1px purple;
+  text-decoration: underline;
+  padding-bottom: 0.25em;
+}
+
+.indiv-project img {
+  width: inherit;
+}
+
+.indiv-project p {
+  padding: 1em;
+  font-weight: bold;
+}
+
+hr {
+  margin-bottom: 1em;
+}
+
+.skill {
+  height: 65px;
+  padding: 1em;
+  width: auto;
+  display: inline-block;
 }

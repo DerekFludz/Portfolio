@@ -1,2 +1,13 @@
-<button type="button" ng-click="mainCtrl.slider()">Proceed to Simon</button><br/>
+<button type="button" ng-click="mainCtrl.slide3()">Proceed to Simon</button><br/>
+<!-- <div id="scoreboard" ng-repeat="score in mainCtrl.scores | orderBy: 'time' | limitTo: 5">
+  <h3>{{score.name}}</h3> | <span>Clicks: {{score.clicks}}</span> | <span>Time: {{score.time}}</span>
+</div><br/> -->
 <button type="button" id="check-score">Check Score</button><br/>
+<!-- Scoreboard Logic Future Implementation -->
+<!-- <button type="button" id="save-score">Save Your Score</button><br/>
+<form id="score-form" ng-submit="mainCtrl.saveScore()">
+  <input type="text" name="name" ng-model="mainCtrl.name" placeholder="enter name">
+  <input id="hiddenclicks" type="text" name="clicks" ng-model="mainCtrl.clicks" value="">
+  <input id="hiddentime" type="text" name="time" ng-model="mainCtrl.time" value="">
+  <input type="submit" value="Submit">
+</form> -->

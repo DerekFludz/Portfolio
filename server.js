@@ -5,6 +5,7 @@
 var express  = require('express'),
     app      = express(),
     logger   = require('morgan'),
+    bodyParser = require('body-parser'),
     mongoose = require('mongoose'),
     db       = mongoose.connection,
     mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost/portfolio',
@@ -14,6 +15,8 @@ var express  = require('express'),
 // MIDDLEWARE
 /////////////////////////
 
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json());
 app.use(express.static('public'));
 app.use(logger('dev'));
 
@@ -32,6 +35,9 @@ app.use(logger('dev'));
 
 var projectsController = require('./controllers/projectsController.js');
 app.use('/projects', projectsController);
+
+var scoreController = require('./controllers/scoreController.js');
+app.use('/scores', scoreController);
 
 
 /////////////////////////

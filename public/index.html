@@ -10,14 +10,8 @@
     <script src="scripts/scripts.js" charset="utf-8"></script>
   </head>
   <body ng-controller="MainController as mainCtrl">
-    <header>
-      <ul>
-        <li ng-click="mainCtrl.slide1()" class="navbar-link">Pucks</li> |
-        <li ng-click="mainCtrl.slide3()" class="navbar-link">Simon</li> |
-        <li ng-click="mainCtrl.slide4()" class="navbar-link">Portfolio</li> -->
-        <h2 class="navbar-link-title">Derek Fludzinski</h2>
-      </ul>
-    </header>
+    <header ng-if="mainCtrl.slide != 4" ng-include=" 'partials/header1.html' "></header>
+    <header ng-if="mainCtrl.slide == 4" ng-include=" 'partials/header2.html' "></header>
     <div ng-if="mainCtrl.slide == 0" ng-include=" 'partials/lander.html' " id="lander-wrapper"></div>
     <div ng-if="mainCtrl.slide == 1" ng-include=" 'partials/pucks.html' " id="pucks-wrapper"></div>
     <div ng-if="mainCtrl.slide == 2" ng-include=" 'partials/puckscore.html' " id="puckscore-wrapper"></div>

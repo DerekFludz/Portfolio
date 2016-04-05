@@ -1,9 +1,12 @@
 var app = angular.module("DerekApp", []);
 
-app.controller('MainController', ['$http', function($http){
+app.controller('MainController', ['$http', '$scope', function($http, $scope){
 
   var controller = this;
   this.projects = null;
+  this.scores = null;
+  this.clicks = null;
+  this.time = null;
   this.slide = 0;
 
   // Page Transitions
@@ -24,11 +27,45 @@ app.controller('MainController', ['$http', function($http){
     return controller.slide = 4;
   };
 
+  // Puck Leaderboard Future Implementation
+
+  // $http({
+  //   method: 'GET',
+  //   url: '/scores'
+  // }).then(
+  //   function(response) {
+  //     controller.scores = response.data
+  //   },
+  //   function(err) {
+  //     console.log(err);
+  //   }
+  // );
+
+  // this.saveScore = function() {
+  //   var name = controller.name;
+  //   console.log(name);
+  //   var clicks = controller.clicks;
+  //   console.log(clicks);
+  //   var time = controller.time;
+  //   console.log(time);
+  //   $http({
+  //     method: 'POST',
+  //     url: '/scores/' + name + '/' + clicks + '/' + time
+  //     // headers: {'Content-Type': 'undefined'}
+  //   }).then(
+  //     function(response) {
+  //       console.log(response);
+  //     }, function(err) {
+  //       console.log(err);
+  //     }
+  //   );
+  // };
+
   // Portfolio Logic
 
   $http({
-    url: ('/projects'),
-    method: 'GET'
+    method: 'GET',
+    url: '/projects'
   }).then(
     function(response) {
       controller.projects = response.data;

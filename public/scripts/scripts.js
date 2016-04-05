@@ -55,11 +55,19 @@ $(function(){
 
     // display # of clicks and time spent on puck game
     $(document).on('click', '#check-score', function() {
+      $('#check-score').css('visibility', 'hidden');
       $clicks = $('<p>').html('Number of Clicks: ' + counter);
       $time = $('<p>').html('Time Spent: ' + timer + ' seconds');
       $('#puckscore-wrapper').append($clicks);
       $('#puckscore-wrapper').append($time);
+      // $('#save-score').css('visibility', 'visible');
     });
+
+    // $(document).on('click', '#save-score', function() {
+    //   $('#score-form').css('visibility', 'visible');
+    //   $('#hiddenclicks').val(counter);
+    //   $('#hiddentime').val(timer);
+    // });
 
   }; // <-- end startPucks function
 
@@ -96,7 +104,7 @@ $(function(){
     $matched = null;
     // boardOff();
     $round += 1;
-    if ($round > 10) {
+    if ($round > 3) {
       $('#round').html('Well done!');
       $('#simon-win').css('visibility', 'visible');
       return;
@@ -199,11 +207,5 @@ $(function(){
   ////////// END SIMON GAME LOGIC //////////
 
   ////////// PORTFOLIO LOGIC //////////
-
-  // for (var i=0; i < projects.length; i++) {
-  //   var $projectDiv = $('<div>');
-  //   $projectDiv.addClass('indiv-project');
-  //   $('#projects-wrapper').append($projectDiv);
-  // };
 
 }); // -- end load
