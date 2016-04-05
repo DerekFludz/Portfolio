@@ -30,8 +30,8 @@ app.use(logger('dev'));
 // });
 
 // SEED CONTROLLER
-var seedController = require('./controllers/seedController.js');
-app.use('/seed', seedController);
+// var seedController = require('./controllers/seedController.js');
+// app.use('/seed', seedController);
 
 var projectsController = require('./controllers/projectsController.js');
 app.use('/projects', projectsController);
